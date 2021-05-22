@@ -184,15 +184,38 @@
 
 <div class="new-income-parcel-modal">
 
-    <div class="container-1440">
-        <div class="modal-content">
-            <div class="content-wrapper">
-                <h2 class="page-title">Принять новые товары</h2>
-            </div>
+    <div class="modal-content">
+        <div class="content-wrapper">
+            <h2 class="page-title">Принять новые товары</h2>
 
+            <form action="" method="POST" class="new-parcel-form">
+                <div class="product-add-wrapper">
+                    <div class="input-wrapper">
+                        <label for="">Название товара</label>
+                        <input type="text" name="product-name[]" id="" required>
+                    </div>
 
-            <img src="/src/icons/close-modal.svg" alt="close" id="close-modal">
+                    <div class="input-wrapper">
+                        <label for="">Количество</label>
+                        <input type="text" name="product-quantity[]" id="" required>
+                    </div>
+                </div>
+
+                <div class="product-add-wrapper">
+                    <div class="input-wrapper">
+                        <label for="">Название товара</label>
+                        <input type="text" name="product-name[]" id="" required>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="">Количество</label>
+                        <input type="text" name="product-quantity[]" id="" required>
+                    </div>
+                </div>
+            </form>
         </div>
+
+        <img src="/src/icons/close-modal.svg" alt="close" id="close-modal">
     </div>
 
 </div>

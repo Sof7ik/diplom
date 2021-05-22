@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be9fb518-717c-43c6-8a2b-86d33c815a91" name="Default Changelist" comment="" />
+    <list default="true" id="e7d53e55-2aa5-4c64-8168-de360d782446" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/income-parcel.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/income-parcel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/income-parcel/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/income-parcel/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepros.config" beforeDir="false" afterPath="$PROJECT_DIR$/prepros.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/income-parcel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/income-parcel.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,73 +16,36 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1srIhjNTNmJtJ8c4f3ZKYHj80U6" />
+  <component name="ProjectId" id="1stNGZJBEgbaDdAh0dMb4dytWiF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\OpenServer\domains\diplom\src" />
-      <recent name="D:\OpenServer\domains\diplom\includes\header" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be9fb518-717c-43c6-8a2b-86d33c815a91" name="Default Changelist" comment="" />
-      <created>1621624403674</created>
+      <changelist id="e7d53e55-2aa5-4c64-8168-de360d782446" name="Default Changelist" comment="" />
+      <created>1621687842833</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1621624403674</updated>
-      <workItem from="1621624404738" duration="15770000" />
-      <workItem from="1621668840995" duration="4350000" />
+      <updated>1621687842833</updated>
+      <workItem from="1621687866991" duration="3467000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621630336907">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621630336907" />
-    <state x="644" y="325" width="665" height="658" key="EditFileWatcherDialog" timestamp="1621624885100">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="644" y="325" width="665" height="658" key="EditFileWatcherDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621624885100" />
-    <state x="756" y="409" key="FileChooserDialogImpl" timestamp="1621624878912">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="756" y="409" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621624878912" />
-    <state x="794" y="439" key="NewPhpFileDialog" timestamp="1621638949169">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621638949169" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1621624886879">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621624886879" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1621637278799">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1621637278799" />
   </component>
 </project>

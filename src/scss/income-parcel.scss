@@ -139,6 +139,8 @@ div.modal-content
     top: -100vh;
     transform: translateX(-50%);
 
+    width: 60%;
+
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
@@ -153,6 +155,7 @@ div.modal-content
     div.content-wrapper
     {
         margin-right: 30px;
+        flex-grow: 1;
     }
 
     h2.page-title
@@ -177,5 +180,46 @@ div.new-income-parcel-modal.opened
     {
         top: 50%;
         transform: translate(-50%, -50%);
+        width: 60%;
+    }
+}
+
+form.new-parcel-form
+{
+    width: 100%;
+}
+
+div.product-add-wrapper
+{
+    margin-bottom: 30px;
+
+    div.input-wrapper
+    {
+        width: 100%;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-bottom: 20px;
+
+        label
+        {
+            font-size: 16px;
+        }
+
+        input
+        {
+            border: 1px solid #333;
+            padding: 7px 13px;
+            font-size: 22px;
+        }
+
+        input[name="product-name[]"]
+        {
+            width: 100%;
+            margin-top: 10px;
+        }
     }
 }
