@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import "mixins";
+
+*, *::before, *::after
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Montserrat', sans-serif;
+
+    color: $mainTextColor;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+ul, ol
+{
+    list-style-type: none;
+}
+
+button, input
+{
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    color: $mainTextColor;
+}
+
+.container-1440
+{
+    max-width: calc(1440px + 40px);
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+body
+{
+    background-color: #dbdbdb;
+}
+
+main
+{
+    min-height: calc(100vh - 126.63px);
+    padding-bottom: 100px;
+}
+
+h2.hello-heading
+{
+    font-size: 80px;
+    text-align: center;
+
+    color: $mainTextColor;
+
+    animation: helloAnimation linear 2s;
+}
+
+@keyframes helloAnimation {
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
+}
+
+form.auth
+{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: $mainTextColor;
+
+    div.input-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        margin-bottom: 15px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 400;
+
+            margin-bottom: 5px;
+
+            color: $secondaryTextColor;
+        }
+
+        input {
+            padding: 10px 15px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+
+            width: 300px;
+
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+    input[type="submit"]
+    {
+        cursor: pointer;
+
+        padding: 10px 40px;
+        background-color: #fff;
+        border-radius: 5px;
+
+        color: $mainTextColor;
+
+        font-size: 18px;
+
+        margin-top: 20px;
+
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+
+        transition:  border-radius .3s, box-shadow .3s;
+
+        &:hover
+        {
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
+
+h2.page-title
+{
+    margin-top: 40px;
+    letter-spacing: 0.02em;
+}
