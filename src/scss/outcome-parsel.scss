@@ -1,0 +1,47 @@
+h2.page-title
+{
+    margin-bottom: 20px;
+}
+
+div.outcoming-list
+{
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 40px;
+}
+
+div.outcome-item
+{
+    background-color: #c4c4c4;
+    padding: 20px;
+
+    p.outcome-item__date
+    {
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+
+    p.outcome-item__name
+    {
+        font-weight: 500;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    img.outcome-item__image
+    {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+
+    p.outcome-item__quantity
+    {
+        span
+        {
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+}

@@ -16,6 +16,8 @@ class Database
             DB_USER,
             DB_PASSWORD
         );
+
+        static::$connection->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     }
 
     private static function getConnection()
@@ -23,7 +25,6 @@ class Database
         if (empty(static::$connection)) {
 
             static::initConnection();
-
         }
 
         return static::$connection;
@@ -36,6 +37,8 @@ class Database
         $query = 'SELECT ' . $selector . ' FROM ' . $table;
 
         $query .= ($conditionTemplate != '') ? (' WHERE ' . $conditionTemplate) : '';
+
+//        echo $query;
 
         $sth = $connection->prepare($query);
 
@@ -55,11 +58,12 @@ class Database
 
         $query = 'INSERT INTO ' . $table . ' VALUES (' . $valuesTemplate . ')';
 
+//        echo $query;
+
         $sth = $connection->prepare($query);
 
         foreach ($embeddedData as $data)
         {
-
             $sth->bindParam(...$data);
         }
 
@@ -78,11 +82,17 @@ class Database
 
         foreach ($embeddedData as $data)
         {
-
             $sth->bindParam(...$data);
-
         }
-        $sth->execute();
+
+        if ( $sth->execute())
+        {
+            return ['code' => 200];
+        }
+        else
+        {
+            return ['code' => 500];
+        }
     }
 
     public static function delete(string $table, string $conditionTemplate = '', array $embeddedData = [])
@@ -94,6 +104,8 @@ class Database
 
         $query .= ($conditionTemplate != '') ? (' WHERE ' . $conditionTemplate) : '';
 
+//        echo $query;
+
         $sth = $connection->prepare($query);
 
         foreach ($embeddedData as $data)
@@ -101,6 +113,13 @@ class Database
             $sth->bindParam(...$data);
         }
 
-        $sth->execute();
+        if($sth->execute())
+        {
+            return ['code' => 200];
+        }
+        else
+        {
+            return ['code' => 500];
+        }
     }
 }

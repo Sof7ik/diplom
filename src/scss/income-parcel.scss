@@ -44,20 +44,10 @@ button.new-parcel
     }
 }
 
-div.income-date-wrapper
+
+div.incoming-list
 {
-    border-top: 1px solid #333;
-    padding-top: 5px;
-
-    margin-top: 40px;
-
-    p.date
-    {
-        font-size: 20px;
-        font-weight: 700;
-
-        margin-bottom: 15px;
-    }
+    margin-top: 50px;
 }
 
 div.income-item
@@ -81,39 +71,36 @@ div.incoming-list div.income-item:last-child
     margin-bottom: 0;
 }
 
-div.products
+div.income-item__product
 {
-    div.income-item__product
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    &:last-child
     {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
+        margin-bottom: 0;
+    }
 
-        background-color: #dbdbdb;
-        border-radius: 10px;
-        padding: 15px;
+    img.product-photo
+    {
+        margin-right: 20px;
+        width: 120px;
+    }
 
-        margin-bottom: 15px;
-
-        &:last-child
-        {
-            margin-bottom: 0;
-        }
-
-        img.product-photo
-        {
-            margin-right: 20px;
-            width: 100px;
-        }
-
-        p.product-text__name
-        {
-            font-weight: 700;
-            color: $mainTextColor;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
+    p.product-text__name
+    {
+        font-weight: 700;
+        color: $mainTextColor;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 }
 
@@ -140,6 +127,8 @@ div.modal-content
     transform: translateX(-50%);
 
     width: 60%;
+    max-height: 80vh;
+    overflow: hidden;
 
     display: flex;
     flex-flow: row nowrap;
@@ -150,12 +139,15 @@ div.modal-content
     border-radius: 20px;
     padding: 20px;
 
+    overflow-y: auto;
+
     transition: top .3s;
 
     div.content-wrapper
     {
         margin-right: 30px;
         flex-grow: 1;
+        max-height: 80vh;
     }
 
     h2.page-title
@@ -222,4 +214,26 @@ div.product-add-wrapper
             margin-top: 10px;
         }
     }
+}
+
+input.accept-parcel
+{
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px 15px;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: #fff;
+
+    border-radius: 10px;
+}
+
+button#add-new-field
+{
+    border: 1px solid blue;
+    color: #000;
+    background-color: #3f93ff;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
 }

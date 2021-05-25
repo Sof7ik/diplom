@@ -36,7 +36,7 @@
                 <p class="to-do-variant__name">Принять товары</p>
             </a>
 
-            <a class="to-do-variant">
+            <a href="/outcome-parcels/" class="to-do-variant">
                 <img src="/src/icons/outcome-parcel.svg" alt="incoming" class="to-do-variant__icon">
 
                 <p class="to-do-variant__name">Отгрузить товары</p>
@@ -48,7 +48,7 @@
                 <p class="to-do-variant__name">Провести инвентаризацию</p>
             </a>
 
-            <a class="to-do-variant">
+            <a href="/edit-products/" class="to-do-variant">
                 <img src="/src/icons/edit-goods.png" alt="incoming" class="to-do-variant__icon">
 
                 <p class="to-do-variant__name">Изменить товары</p>

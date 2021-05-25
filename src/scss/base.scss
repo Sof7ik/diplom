@@ -31,6 +31,15 @@ button, input
     color: $mainTextColor;
 }
 
+button
+{
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 .container-1440
 {
     max-width: calc(1440px + 40px);
@@ -41,6 +50,11 @@ button, input
 body
 {
     background-color: #dbdbdb;
+}
+
+body.notScrollable
+{
+    overflow-y: hidden;
 }
 
 main

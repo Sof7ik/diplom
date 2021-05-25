@@ -2,6 +2,18 @@
     if (empty($_COOKIE['user'])) {
         header('Location: /');
     }
+
+    require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
+
+    $incomingParcels = Database::select('`products`, `incoming-parcels`, `income-parcels-goods`',
+        '`incoming-parcels`.`id` AS "parcel-id", 
+        `incoming-parcels`.`date` AS "parcel-date", 
+        `products`.`name` AS "product-name",
+        `products`.`image` as "product-image",
+        `products`.`description` AS "product-desc"',
+        '`income-parcels-goods`.`id-income` = `incoming-parcels`.`id` AND
+        `income-parcels-goods`.`id-product` = `products`.`id`
+        ORDER BY `incoming-parcels`.`date` DESC');
 ?>
 
 <!doctype html>
@@ -31,154 +43,39 @@
         <span>Новая привозка</span>
     </button>
 
-    <div class="income-date-wrapper">
-        <p class="date">Сегодня</p>
+    <div class="incoming-list">
+        <?php
+            foreach($incomingParcels as $parcel)
+            {
+                $dateTimeFormatter = new DateTime($parcel['parcel-date']);
+                $normalDate = $dateTimeFormatter -> format('d.m.Y в H:m:s');
 
-        <div class="incoming-list">
-            <div class="income-item">
-                <p class="income-item-date">09:24:40</p>
+                ?>
+                    <div class="income-item">
+                        <p class="income-item-date"><?=$normalDate?></p>
 
-                <div class="products">
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
+                        <div class="income-item__product">
+                            <?php
+                                if ($parcel['product-image'] == '')
+                                {?>
+                                    <img src="https://via.placeholder.com/120" alt="image" class="product-photo">
+                                <?}
+                                else
+                                {?>
+                                    <img src="<?=$parcel['product-image']?>" alt="product-photo" class="product-photo">
+                                <?}
+                            ?>
 
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
+                            <div class="product-text">
+                                <p class="product-text__name"><?=$parcel['product-name']?></p>
 
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
+                                <p class="product-text__desc"><?=$parcel['product-desc']?></p>
+                            </div>
                         </div>
                     </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="income-item">
-                <p class="income-item-date">09:24:40</p>
-
-                <div class="products">
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="income-date-wrapper">
-        <p class="date">Вчера</p>
-
-        <div class="incoming-list">
-            <div class="income-item">
-                <p class="income-item-date">09:24:40</p>
-
-                <div class="products">
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-
-                    <div class="income-item__product">
-                        <img src="/src/images/test.jpg" alt="product-photo" class="product-photo">
-
-                        <div class="product-text">
-                            <p class="product-text__name">Товар 1</p>
-
-                            <p class="product-text__desc">Товар 1 является товаром 1 потому что он товар 1</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <?
+            }
+        ?>
     </div>
 </div>
 
@@ -188,7 +85,7 @@
         <div class="content-wrapper">
             <h2 class="page-title">Принять новые товары</h2>
 
-            <form action="" method="POST" class="new-parcel-form">
+            <form action="/src/php/accept-new-parcel.php" method="POST" class="new-parcel-form">
                 <div class="product-add-wrapper">
                     <div class="input-wrapper">
                         <label for="">Название товара</label>
@@ -197,21 +94,13 @@
 
                     <div class="input-wrapper">
                         <label for="">Количество</label>
-                        <input type="text" name="product-quantity[]" id="" required>
+                        <input type="number" name="product-quantity[]" id="" required>
                     </div>
                 </div>
 
-                <div class="product-add-wrapper">
-                    <div class="input-wrapper">
-                        <label for="">Название товара</label>
-                        <input type="text" name="product-name[]" id="" required>
-                    </div>
+                <button id="add-new-field">Добавить поле</button>
 
-                    <div class="input-wrapper">
-                        <label for="">Количество</label>
-                        <input type="text" name="product-quantity[]" id="" required>
-                    </div>
-                </div>
+                <input type="submit" value="Принять" class="accept-parcel" id="accept-parcel-button">
             </form>
         </div>
 
