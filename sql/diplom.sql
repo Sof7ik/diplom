@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 26 2021 г., 01:25
--- Версия сервера: 8.0.19
+-- Время создания: Май 26 2021 г., 13:49
+-- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -24,24 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Дамп данных таблицы `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`) VALUES
+(1, 'Комплектующие для компьютера'),
+(2, 'Садовый инструмент'),
+(3, 'Бензоинструмент'),
+(4, 'Силовая техника');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `income-parcels-goods`
 --
 
 CREATE TABLE `income-parcels-goods` (
-  `id-income` int NOT NULL,
-  `id-product` int NOT NULL,
-  `product-quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id-income` int(11) NOT NULL,
+  `id-product` int(11) NOT NULL,
+  `product-quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `income-parcels-goods`
 --
 
 INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity`) VALUES
-(1, 1, 10),
-(1, 2, 4),
-(3, 2, 40),
-(5, 1, 30);
+(7, 21, 10);
 
 -- --------------------------------------------------------
 
@@ -50,20 +68,16 @@ INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity
 --
 
 CREATE TABLE `incoming-parcels` (
-  `id` int NOT NULL,
-  `date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `incoming-parcels`
 --
 
 INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
-(1, '2021-05-23 15:37:53'),
-(3, '2021-05-05 16:06:59'),
-(4, '2021-05-26 00:32:21'),
-(5, '2021-05-12 00:11:00'),
-(6, '2021-05-24 00:05:59');
+(7, '2021-05-26 13:05:26');
 
 -- --------------------------------------------------------
 
@@ -72,19 +86,10 @@ INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
 --
 
 CREATE TABLE `outcome-parcels-goods` (
-  `id-outcome` int NOT NULL,
-  `id-product` int NOT NULL,
-  `quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп данных таблицы `outcome-parcels-goods`
---
-
-INSERT INTO `outcome-parcels-goods` (`id-outcome`, `id-product`, `quantity`) VALUES
-(1, 1, 20),
-(1, 2, 10),
-(2, 1, 10);
+  `id-outcome` int(11) NOT NULL,
+  `id-product` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -93,18 +98,9 @@ INSERT INTO `outcome-parcels-goods` (`id-outcome`, `id-product`, `quantity`) VAL
 --
 
 CREATE TABLE `outcoming-parcels` (
-  `id` int NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Дамп данных таблицы `outcoming-parcels`
---
-
-INSERT INTO `outcoming-parcels` (`id`, `date`) VALUES
-(1, '2021-05-25 14:17:41'),
-(2, '2021-05-25 14:17:50'),
-(3, '2021-05-25 14:17:50');
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -113,20 +109,20 @@ INSERT INTO `outcoming-parcels` (`id`, `date`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `cat-id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`) VALUES
-(1, 'Леёнька', 'Новое описание товара', 'https://sun9-57.userapi.com/impg/iRNJppSfo_og4MHRrmsG1567CaYkKAdcZxTEdQ/5zW3xSxvtvw.jpg?size=2560x1707&quality=96&sign=bd1594a2136d9800e8e4ad1846b12498&type=album', 1),
-(2, 'корпус компьютерный чёрный Ranou', 'Mini-Tower — второй по популярности типоразмер. С развитием технологий размер материнских плат все уменьшался, а звуковые, видео- и сетевые карты все чаще оказывались интегрированы в «материнку». В результате для простых сборок Mid-Tower оказался слишком просторен. Для таких случаев разработан Mini-Tower, который обычно имеет ту же ширину, что и Mid-Tower, но меньшую высоту и длину. Стандартная плата ATX в такой корпус уже не лезет, поддерживаются только те форм-факторы, которые по размерам меньше или равны Micro-ATX и Mini-ITX.\n\n', 'https://cdn.svyaznoy.ru/upload/iblock/9dd/1029545_v01_b.jpg', 123);
+INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`, `cat-id`) VALUES
+(21, 'Генератор 1000w', NULL, NULL, 10, 4);
 
 -- --------------------------------------------------------
 
@@ -135,13 +131,13 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `surname` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `father` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `login` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(255) NOT NULL,
+  `father` varchar(255) NOT NULL,
+  `login` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `users`
@@ -153,6 +149,12 @@ INSERT INTO `users` (`id`, `name`, `surname`, `father`, `login`, `password`) VAL
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `income-parcels-goods`
@@ -197,28 +199,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT для таблицы `incoming-parcels`
 --
 ALTER TABLE `incoming-parcels`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `outcoming-parcels`
 --
 ALTER TABLE `outcoming-parcels`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
