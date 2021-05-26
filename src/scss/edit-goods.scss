@@ -45,6 +45,11 @@ div.product-item
 
     margin-bottom: 20px;
 
+    &.hidden
+    {
+        display: none;
+    }
+
     div.up-product-info
     {
         display: flex;

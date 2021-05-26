@@ -9,7 +9,13 @@
     // фикс, прописать все поля для выбора, а то генаратор -> силовя техника
     $goodsList = Database::select(
         'products, categories',
-        '*',
+        '`products`.`id` as "product-id",
+        `products`.`name` as "product-name",
+        `products`.`image` as "product-image",
+        `products`.`description` as "product-desc",
+        `products`.`quantity` as "product-quantity",
+        `categories`.`name` as "cat-name",
+        `categories`.`id` as "cat-id"',
         '`products`.`cat-id` = `categories`.`id`'
     );
 
@@ -36,6 +42,7 @@
 
     <script src="/src/js/deleteProduct.js" defer></script>
     <script src="/src/js/editProduct-modal.js" defer></script>
+    <script src="/src/js/allGoods-filter.js" defer></script>
 </head>
 <body>
 
@@ -47,7 +54,7 @@
             <div class="select-category">
                 <p>Категория</p>
 
-                <select class="select-category">
+                <select class="select-category" id="title-category-select">
                     <option selected value="-1">Все</option>
                     <?php
                         foreach ($categories as $category) 
@@ -66,19 +73,19 @@
                 {
                     $imageSrc = $goodItem['image'] == '' ? 'https://via.placeholder.com/150' : $goodItem['image'];
                     ?>
-                    <div class="product-item" data-product-id="<?=$goodItem['id']?>" data-category-id="<?=$goodItem['cat-id']?>">
+                    <div class="product-item" data-product-id="<?=$goodItem['product-id']?>" data-category-id="<?=$goodItem['cat-id']?>">
 
                         <div class="up-product-info">
                             <img src="<?=$imageSrc?>" alt="product-image">
 
                             <div class="product-text">
-                                <p class="product-item__name"><?=$goodItem['name']?></p>
+                                <p class="product-item__name"><?=$goodItem['product-name']?></p>
 
-                                <p class="product-item__desc"><?=$goodItem['description']?></p>
+                                <p class="product-item__desc"><?=$goodItem['product-desc']?></p>
                             </div>
                         </div>
 
-                        <p class="product-quantity">Количество на складе: <span><?=$goodItem['quantity']?></span></p>
+                        <p class="product-quantity">Количество на складе: <span><?=$goodItem['product-quantity']?></span></p>
 
                         <div class="buttons">
                             <button class="manage-button delete">Удалить</button>

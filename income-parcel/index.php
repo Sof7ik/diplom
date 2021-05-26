@@ -36,7 +36,9 @@
 
     <link rel="stylesheet" href="/dist/css/income-parcel.css">
 
-    <script defer src="/dist/js/open-newParcel-modal.min.js"></script>
+<!--    <script defer src="/dist/js/open-newParcel-modal.min.js"></script>-->
+
+    <script src="/src/js/open-newParcel-modal.js" defer></script>
 </head>
 <body>
 <? require $_SERVER['DOCUMENT_ROOT'].'/includes/header/header.php'?>
