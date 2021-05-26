@@ -1,3 +1,35 @@
+div.title
+{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-top: 40px;
+
+    h2
+    {
+        margin-right: 30px;
+        margin-top: 0;
+    }
+}
+
+div.select-category
+{
+    p
+    {
+        font-size: 18px;
+    }
+
+    select
+    {
+        outline: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 5px;
+    }
+}
+
 div.goods-list
 {
     margin-top: 40px;

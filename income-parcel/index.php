@@ -10,10 +10,15 @@
         `incoming-parcels`.`date` AS "parcel-date", 
         `products`.`name` AS "product-name",
         `products`.`image` as "product-image",
-        `products`.`description` AS "product-desc"',
+        `products`.`description` AS "product-desc",
+        `income-parcels-goods`.`product-quantity` as "income-product-quantity"',
         '`income-parcels-goods`.`id-income` = `incoming-parcels`.`id` AND
         `income-parcels-goods`.`id-product` = `products`.`id`
         ORDER BY `incoming-parcels`.`date` DESC');
+
+    $categories = Database::select(
+        '`categories`'
+    );
 ?>
 
 <!doctype html>
@@ -56,20 +61,20 @@
 
                         <div class="income-item__product">
                             <?php
-                                if ($parcel['product-image'] == '')
-                                {?>
-                                    <img src="https://via.placeholder.com/120" alt="image" class="product-photo">
-                                <?}
-                                else
-                                {?>
-                                    <img src="<?=$parcel['product-image']?>" alt="product-photo" class="product-photo">
-                                <?}
+                                $imageSrc = $parcel['product-image'] == '' ? 
+                                    'https://via.placeholder.com/120' : $parcel['product-image'];
                             ?>
+
+                            <img src="<?=$imageSrc?>" alt="image" class="product-photo">
 
                             <div class="product-text">
                                 <p class="product-text__name"><?=$parcel['product-name']?></p>
 
                                 <p class="product-text__desc"><?=$parcel['product-desc']?></p>
+
+                                <p class="product-text__quantity">
+                                    Товара принято: <span><?=$parcel['income-product-quantity']?> шт.</span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -95,6 +100,18 @@
                     <div class="input-wrapper">
                         <label for="">Количество</label>
                         <input type="number" name="product-quantity[]" id="" required>
+                    </div>
+
+                    <div class="input-wrapper">
+                        <label for="">Категория</label>
+                        <select name="product-category[]" id="" required>
+                            <?php
+                                foreach($categories as $cat)
+                                {?>
+                                    <option value="<?=$cat['id']?>"><?=$cat['name']?></option>
+                                <?}
+                            ?>
+                        </select>
                     </div>
                 </div>
 

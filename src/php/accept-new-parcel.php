@@ -1,6 +1,7 @@
 <?php
     $productNames = $_POST['product-name'];
     $productQuantities = $_POST['product-quantity'];
+    $productCategories = $_POST['product-category'];
 
     $normalArray = [];
     
@@ -9,7 +10,8 @@
         array_push($normalArray,
         [
             'product-name' => $productName,
-            'product-quantity' => $productQuantities[$key]
+            'product-quantity' => $productQuantities[$key],
+            'product-category' => $productCategories[$key]
         ]);
     }
 
@@ -19,7 +21,8 @@
     {
         $productName = $newProduct['product-name'];
         $productQuantity = $newProduct['product-quantity'];
-
+        $productCat = $newProduct['product-category'];
+        
         $isInDB = Database::select(
             '`products`',
             'id as "product-id", quantity as "product-quantity"',
@@ -49,14 +52,15 @@
         {
             // вставляем этот продукт как новый
             Database::insert(
-                '`products` (`id`, `name`, `description`, `image`, `quantity`)',
-                ':id, :name, :description, :image, :quantity',
+                '`products` (`id`, `name`, `description`, `image`, `quantity`, `cat-id`)',
+                ':id, :name, :description, :image, :quantity, :catID',
                 [
                     ['id', NULL],
                     ['name', $productName],
                     ['description', NULL],
                     ['image', NULL],
-                    ['quantity', $productQuantity]
+                    ['quantity', $productQuantity],
+                    ['catID', $productCat]
                 ]);
 
             // берем последний вставленный продукт

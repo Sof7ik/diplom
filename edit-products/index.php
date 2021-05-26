@@ -6,8 +6,15 @@
 
     require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
 
+    // фикс, прописать все поля для выбора, а то генаратор -> силовя техника
     $goodsList = Database::select(
-            'products',
+        'products, categories',
+        '*',
+        '`products`.`cat-id` = `categories`.`id`'
+    );
+
+    $categories = Database::select(
+        'categories',
         '*'
     );
 ?>
@@ -34,7 +41,24 @@
 
 <? require $_SERVER['DOCUMENT_ROOT'].'/includes/header/header.php'?>
     <div class="container-1440">
-        <h2 class="page-title">Товары на складе</h2>
+        <div class="title">
+            <h2 class="page-title">Товары на складе</h2>
+
+            <div class="select-category">
+                <p>Категория</p>
+
+                <select class="select-category">
+                    <option selected value="-1">Все</option>
+                    <?php
+                        foreach ($categories as $category) 
+                        {?>
+                            <option value="<?=$category['id']?>"><?=$category['name']?></option>
+                        <?}
+                    ?>
+                </select>
+            </div>
+            
+        </div>
 
         <div class="goods-list">
             <?php
@@ -42,7 +66,7 @@
                 {
                     $imageSrc = $goodItem['image'] == '' ? 'https://via.placeholder.com/150' : $goodItem['image'];
                     ?>
-                    <div class="product-item" data-product-id="<?=$goodItem['id']?>">
+                    <div class="product-item" data-product-id="<?=$goodItem['id']?>" data-category-id="<?=$goodItem['cat-id']?>">
 
                         <div class="up-product-info">
                             <img src="<?=$imageSrc?>" alt="product-image">

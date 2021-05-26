@@ -6,6 +6,11 @@ function modalHandler(event)
     document.body.classList.toggle('notScrollable');
 }
 
+function deleteAddedField(event)
+{
+    event.currentTarget.parentNode.remove();
+}
+
 function addNewField(event)
 {
     event.preventDefault();
@@ -15,6 +20,8 @@ function addNewField(event)
     button.insertAdjacentHTML('beforebegin',
         `
             <div class="product-add-wrapper">
+                <img src="/src/icons/close-modal.svg" class="remove-field">
+
                 <div class="input-wrapper">
                     <label for="">Название товара</label>
                     <input type="text" name="product-name[]" id="" required>
@@ -26,6 +33,11 @@ function addNewField(event)
                 </div>
             </div>
         `);
+
+    const removeFieldsButtons = document.querySelectorAll('img.remove-field');
+    const neededButton = removeFieldsButtons[removeFieldsButtons.length - 1];
+
+    neededButton.addEventListener('click', deleteAddedField, true)
 }
 
 document.addEventListener('DOMContentLoaded', e=> {

@@ -102,6 +102,18 @@ div.income-item__product
         font-size: 24px;
         margin-bottom: 10px;
     }
+
+    p.product-text__quantity
+    {
+        font-size: 14px;
+        margin-top: 20px;
+
+        span
+        {
+            font-weight: 500;
+            font-size: 18px;
+        }
+    }
 }
 
 div.new-income-parcel-modal
@@ -185,6 +197,27 @@ div.product-add-wrapper
 {
     margin-bottom: 30px;
 
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    img.remove-field
+    {
+        align-self: flex-end;
+        width: 20px;
+        transform: rotate(45deg);
+
+        cursor: pointer;
+
+        transition: transform .3s;
+
+        &:hover
+        {
+            transform: transform(45deg) scale(1.1);
+        }
+    }
+
     div.input-wrapper
     {
         width: 100%;
@@ -201,7 +234,7 @@ div.product-add-wrapper
             font-size: 16px;
         }
 
-        input
+        input, select
         {
             border: 1px solid #333;
             padding: 7px 13px;

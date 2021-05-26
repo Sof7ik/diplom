@@ -1,13 +1,6 @@
 async function getProductInfo(event)
 {
-    let productId;
-
-    if (event)
-    {
-        productId = event.currentTarget.parentNode.parentNode.dataset.productId;
-    }
-
-    console.log(productId);
+    let productId = event.currentTarget.parentNode.parentNode.dataset.productId;
 
     const data = new FormData();
     data.append('product-id', productId);
@@ -22,15 +15,21 @@ async function getProductInfo(event)
 
 function openModal(data)
 {
-    console.log(data)
-
     const modal = document.querySelector('div.edit-product-modal');
 
     document.getElementById('product-id').value = data.id;
     document.getElementById('product-name').value = data.name;
     document.getElementById('product-desc').textContent = data.description;
     document.getElementById('product-quantity').value = data.quantity;
-    document.getElementById('product-old-image').src = data.image;
+
+    if (data.image == null)
+    {
+        document.getElementById('product-old-image').src = 'https://via.placeholder.com/150';
+    }
+    else
+    {
+        document.getElementById('product-old-image').src = data.image;
+    }
 
     modal.classList.add('opened');
 }
@@ -59,12 +58,6 @@ async function sendData(event)
         productNewImage = document.getElementById('product-old-image').src;
     }
 
-    console.log(productID);
-    console.log(productName);
-    console.log(productDesc);
-    console.log(productQuantity);
-    console.log(productNewImage);
-
     formData.append('productID', productID);
     formData.append('productName', productName);
     formData.append('productDesc', productDesc);
@@ -78,8 +71,6 @@ async function sendData(event)
         .then(response => response.json())
         .then(jsonedData =>
         {
-           console.log(jsonedData)
-
             if (jsonedData.code == 200) {
                 location.reload();
             }

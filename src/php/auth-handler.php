@@ -17,8 +17,12 @@ if (!empty($user[0]))
         setcookie('user', serialize($user[0]), time()+84600, '/');
         header('Location: /start');
     }
+    else
+    {
+        header('Location: /');
+    }
 }
 else
 {
-    print_r($user);
+    header('Location: /');
 }
