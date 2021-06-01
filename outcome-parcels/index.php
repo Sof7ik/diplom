@@ -14,6 +14,13 @@ if (empty($_COOKIE['user']))
 
 require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
 
+$productsArray = Database::select(
+    '`products`, `categories`',
+    '`products`.`id` as "product-id",
+    `products`.`name` as "product-name"',
+    '`products`.`cat-id` = `categories`.`id`'
+);
+
 $goods = Database::select(
     '`outcoming-parcels`,
     `outcome-parcels-goods`,
@@ -31,7 +38,7 @@ $goods = Database::select(
     ORDER BY `outcoming-parcels`.`date` DESC'
 );
 
-//printArray($goods);
+// printArray($productsArray);
 
 ?>
 
@@ -49,6 +56,8 @@ $goods = Database::select(
     <link rel="stylesheet" href="/dist/css/main.css">
 
     <link rel="stylesheet" href="/dist/css/outcome-parsel.css">
+
+    <script src="/src/js/outcome-parcel-modal.js" defer></script>
 </head>
 <body>
 
@@ -73,6 +82,39 @@ $goods = Database::select(
                 </div>
             <?}
             ?>
+        </div>
+    </div>
+
+    <div class="outcome-modal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2 class="modal-title">Создать новую отгрузку товаров</h2>
+
+                <img src="/src/icons/close-modal.svg" alt="close" id="close-outcome-parcel">
+            </div>
+
+            <form action="/src/php/newOutcomeParcel.php" method="POST">
+                <div class="input-wrapper">
+                    <label for="products-list">Введите название товара</label>
+
+                    <input list="products-1" id="products-list-1" name="product-id[]"/>
+
+                    <datalist id="products-1">
+                        <?
+                            foreach($productsArray as $product)
+                            {?>
+                                <option value="<?=$product['product-id']?>"><?=$product['product-name']?></option>
+                            <?}
+                        ?>
+                    </datalist>
+
+                    <input type="number" name="product-quantity[]" id="" min="1" value="1">
+                </div>   
+                
+                <input type="submit" value="Создать отгрузку" id="submit-btn">
+            </form>
+
+            <button id="add-new-field">Добавить поле</button>
         </div>
     </div>
 <? require $_SERVER['DOCUMENT_ROOT'].'/includes/footer/footer.php'?>

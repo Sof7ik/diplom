@@ -160,6 +160,11 @@ form.content-wrapper
     top: 50%;
     transform: translate(-50%, -50%);
 
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
     background-color: #fff;
     padding: 20px;
     max-width: max-content;
@@ -170,11 +175,13 @@ form.content-wrapper
     {
         transform: rotate(45deg);
         cursor: pointer;
+        align-self: flex-end;
     }
 
     div.input-wrapper
     {
         margin-bottom: 30px;
+        width: 100%;
 
         label
         {
