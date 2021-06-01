@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 26 2021 г., 13:49
+-- Время создания: Июн 01 2021 г., 14:14
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -59,7 +59,10 @@ CREATE TABLE `income-parcels-goods` (
 --
 
 INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity`) VALUES
-(7, 21, 10);
+(7, 21, 10),
+(8, 22, 20),
+(9, 23, 17),
+(10, 24, 4);
 
 -- --------------------------------------------------------
 
@@ -77,7 +80,10 @@ CREATE TABLE `incoming-parcels` (
 --
 
 INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
-(7, '2021-05-26 13:05:26');
+(7, '2021-05-26 13:05:26'),
+(8, '2021-06-01 11:06:12'),
+(9, '2021-06-01 11:06:12'),
+(10, '2021-06-01 11:06:12');
 
 -- --------------------------------------------------------
 
@@ -122,7 +128,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`, `cat-id`) VALUES
-(21, 'Генератор 1000w', NULL, NULL, 10, 4);
+(21, 'Генератор 1000w', NULL, NULL, 10, 4),
+(22, 'Видеокарта 3080Ti', NULL, NULL, 20, 1),
+(23, 'Блок питания 600w', NULL, NULL, 17, 1),
+(24, 'Газонокосилка зеленая', NULL, NULL, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -186,7 +195,8 @@ ALTER TABLE `outcoming-parcels`
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cat-id` (`cat-id`);
 
 --
 -- Индексы таблицы `users`
@@ -208,19 +218,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `incoming-parcels`
 --
 ALTER TABLE `incoming-parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT для таблицы `outcoming-parcels`
 --
 ALTER TABLE `outcoming-parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -245,6 +255,12 @@ ALTER TABLE `income-parcels-goods`
 ALTER TABLE `outcome-parcels-goods`
   ADD CONSTRAINT `outcome-parcels-goods_ibfk_1` FOREIGN KEY (`id-outcome`) REFERENCES `outcoming-parcels` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `outcome-parcels-goods_ibfk_2` FOREIGN KEY (`id-product`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cat-id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
