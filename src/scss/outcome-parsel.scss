@@ -12,6 +12,20 @@ div.outcoming-list
     grid-gap: 40px;
 }
 
+@media screen and (max-width: 1500px)
+{
+    div.outcoming-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 1060px)
+{
+    div.outcoming-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 div.outcome-item
 {
     background-color: #c4c4c4;
@@ -119,6 +133,12 @@ div.input-wrapper
         font-size: 17px;
     }
 
+    p.remain-text span
+    {
+        font-weight: 500;
+        font-size: 25px;
+    }
+
     input
     {
         margin-left: auto;
@@ -154,13 +174,21 @@ div.input-wrapper
 input[type="submit"]
 {
     border: 1px solid #333;
-    padding: 5px 15px;
+    padding: 15px;
     border-radius: 5px;
 
     font-size: 14px;
     cursor: pointer;
 
     margin-top: 20px;
+
+    transition: background-color .3s;
+    
+    &:hover
+    {
+        background-color: forestgreen;
+        color: #fff;
+    }
 }
 
 button#add-new-field

@@ -27,15 +27,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7d53e55-2aa5-4c64-8168-de360d782446" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/js/allGoods-filter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/php/get-categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/open-newParcel-modal.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/open-newParcel-modal.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/edit-goods.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/edit-goods.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/outcome-parsel.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/outcome-parsel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/welcome.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/welcome.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edit-products/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/edit-products/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/income-parcel/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/income-parcel/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/outcome-parcels/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/outcome-parcels/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/prepros.config" beforeDir="false" afterPath="$PROJECT_DIR$/prepros.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/open-newParcel-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/open-newParcel-modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/edit-goods.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/edit-goods.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/allGoods-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/allGoods-filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/outcome-parcel-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/outcome-parcel-modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/getProducts.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/getProducts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/newOutcomeParcel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/newOutcomeParcel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/outcome-parsel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/outcome-parsel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/welcome.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/welcome.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +75,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -85,6 +93,7 @@
       <workItem from="1621880953546" duration="19957000" />
       <workItem from="1621933225270" duration="9013000" />
       <workItem from="1622042973704" duration="5199000" />
+      <workItem from="1622635092841" duration="11351000" />
     </task>
     <servers />
   </component>

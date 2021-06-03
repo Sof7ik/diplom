@@ -1,7 +1,7 @@
 <?php
     if (!empty($_COOKIE['user']))
     {
-        header('Location: /start/index.php');
+        header('Location: /start/');
     }
 ?>
 

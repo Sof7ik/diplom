@@ -17,7 +17,8 @@ require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
 $productsArray = Database::select(
     '`products`, `categories`',
     '`products`.`id` as "product-id",
-    `products`.`name` as "product-name"',
+    `products`.`name` as "product-name",
+    `products`.`quantity`',
     '`products`.`cat-id` = `categories`.`id`'
 );
 
@@ -95,7 +96,10 @@ $goods = Database::select(
 
             <form action="/src/php/newOutcomeParcel.php" method="POST">
                 <div class="input-wrapper">
-                    <label for="products-list">Введите название товара</label>
+                    <div class="texts">
+                        <label for="products-list">Введите название товара</label>
+                        <p class="remain-text">На складе: <span></span> шт.</p>
+                    </div>
 
                     <input list="products-1" id="products-list-1" name="product-id[]"/>
 
@@ -103,7 +107,9 @@ $goods = Database::select(
                         <?
                             foreach($productsArray as $product)
                             {?>
-                                <option value="<?=$product['product-id']?>"><?=$product['product-name']?></option>
+                                <option data-remain="<?=$product['quantity']?>" value="<?=$product['product-id']?>">
+                                    <?=$product['product-name']?>
+                                </option>
                             <?}
                         ?>
                     </datalist>

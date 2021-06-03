@@ -71,10 +71,14 @@
             <?php
                 foreach ($goodsList as $goodItem)
                 {
-                    $imageSrc = $goodItem['image'] == '' ? 'https://via.placeholder.com/150' : $goodItem['image'];
+                    $imageSrc = $goodItem['product-image'] == '' ?
+                        'https://via.placeholder.com/150' :
+                        $goodItem['product-image'];
                     ?>
-                    <div class="product-item" data-product-id="<?=$goodItem['product-id']?>" data-category-id="<?=$goodItem['cat-id']?>">
-
+                    <div class="product-item"
+                         data-product-id="<?=$goodItem['product-id']?>"
+                         data-category-id="<?=$goodItem['cat-id']?>"
+                    >
                         <div class="up-product-info">
                             <img src="<?=$imageSrc?>" alt="product-image">
 

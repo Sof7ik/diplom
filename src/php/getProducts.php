@@ -5,7 +5,8 @@ require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
 $productsArray = Database::select(
     '`products`, `categories`',
     '`products`.`id` as "product-id",
-    `products`.`name` as "product-name"',
+    `products`.`name` as "product-name",
+    `products`.`quantity`',
     '`products`.`cat-id` = `categories`.`id`'
 );
 

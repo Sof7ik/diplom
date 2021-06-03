@@ -25,6 +25,14 @@ div.to-do-variants
     grid-gap: 30px;
 }
 
+@media screen and (max-width: 1310px)
+{
+    div.to-do-variants
+    {
+        grid-template-columns: 1fr;
+    }
+}
+
 a.to-do-variant
 {
     background-color: #e7e7e7;

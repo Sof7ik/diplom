@@ -56,6 +56,14 @@ h1.system-name
     color: $mainTextColor;
 }
 
+@media screen and (max-width: 865px)
+{
+    h1.system-name
+    {
+        display: none;
+    }
+}
+
 a.user-data
 {
     display: block;
