@@ -20,8 +20,6 @@ async function addNewField(event)
     await fetch('/src/php/get-categories.php')
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-
             button.insertAdjacentHTML('beforebegin',
                 `
                 <div class="product-add-wrapper">

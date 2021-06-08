@@ -3,8 +3,6 @@ async function deleteProduct(event)
     const elem = event.currentTarget.parentNode.parentNode;
     const prodID = elem.dataset.productId;
 
-    console.log('prodID', prodID);
-
     const formData = new FormData();
     formData.append('prodID', prodID);
 
@@ -15,8 +13,6 @@ async function deleteProduct(event)
         })
         .then(data => data.json())
         .then(data => {
-            console.log(data)
-
             if (data.code == 200)
             {
                 elem.remove();

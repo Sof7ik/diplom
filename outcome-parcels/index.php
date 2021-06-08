@@ -66,7 +66,9 @@ $goods = Database::select(
     <div class="container-1440">
         <h2 class="page-title">Отгрузить товары</h2>
 
-        <button id="new-outcome">Новая отгрузка</button>
+        <button id="new-outcome">
+            <span>Новая отгрузка</span>
+        </button>
 
         <div class="outcoming-list">
             <?

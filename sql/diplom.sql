@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 01 2021 г., 14:14
--- Версия сервера: 10.3.22-MariaDB
+-- Время создания: Июн 09 2021 г., 02:15
+-- Версия сервера: 8.0.19
 -- Версия PHP: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `categories`
@@ -49,20 +49,20 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `income-parcels-goods` (
-  `id-income` int(11) NOT NULL,
-  `id-product` int(11) NOT NULL,
-  `product-quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id-income` int NOT NULL,
+  `id-product` int NOT NULL,
+  `product-quantity` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `income-parcels-goods`
 --
 
 INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity`) VALUES
-(7, 21, 10),
-(8, 22, 20),
-(9, 23, 17),
-(10, 24, 4);
+(11, 25, 100),
+(12, 26, 100),
+(13, 27, 50),
+(14, 28, 10);
 
 -- --------------------------------------------------------
 
@@ -71,9 +71,9 @@ INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity
 --
 
 CREATE TABLE `incoming-parcels` (
-  `id` int(11) NOT NULL,
-  `date` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `date` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `incoming-parcels`
@@ -83,7 +83,11 @@ INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
 (7, '2021-05-26 13:05:26'),
 (8, '2021-06-01 11:06:12'),
 (9, '2021-06-01 11:06:12'),
-(10, '2021-06-01 11:06:12');
+(10, '2021-06-01 11:06:12'),
+(11, '2021-06-02 17:06:14'),
+(12, '2021-06-02 17:06:14'),
+(13, '2021-06-02 17:06:14'),
+(14, '2021-06-02 17:06:14');
 
 -- --------------------------------------------------------
 
@@ -92,10 +96,20 @@ INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
 --
 
 CREATE TABLE `outcome-parcels-goods` (
-  `id-outcome` int(11) NOT NULL,
-  `id-product` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id-outcome` int NOT NULL,
+  `id-product` int NOT NULL,
+  `quantity` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `outcome-parcels-goods`
+--
+
+INSERT INTO `outcome-parcels-goods` (`id-outcome`, `id-product`, `quantity`) VALUES
+(16, 25, 20),
+(16, 26, 5),
+(16, 27, 10),
+(16, 28, 5);
 
 -- --------------------------------------------------------
 
@@ -104,9 +118,16 @@ CREATE TABLE `outcome-parcels-goods` (
 --
 
 CREATE TABLE `outcoming-parcels` (
-  `id` int(11) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `outcoming-parcels`
+--
+
+INSERT INTO `outcoming-parcels` (`id`, `date`) VALUES
+(16, '2021-06-02 17:06:45');
 
 -- --------------------------------------------------------
 
@@ -115,23 +136,23 @@ CREATE TABLE `outcoming-parcels` (
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
+  `description` text,
   `image` varchar(255) DEFAULT NULL,
-  `quantity` int(11) NOT NULL,
-  `cat-id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `quantity` int NOT NULL,
+  `cat-id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`, `cat-id`) VALUES
-(21, 'Генератор 1000w', NULL, NULL, 10, 4),
-(22, 'Видеокарта 3080Ti', NULL, NULL, 20, 1),
-(23, 'Блок питания 600w', NULL, NULL, 17, 1),
-(24, 'Газонокосилка зеленая', NULL, NULL, 4, 2);
+(25, 'CBR CW 830M Green, Веб-камера с матрицей 0,3 МП, разрешение видео 640х480, USB 2.0, встроенный микрофон, ручная фокусировка, крепление на мониторе, длина кабеля 1,4 м, цвет зелёный', '', 'https://comp-city.com/upload/resize_cache/webp/iblock/0ec/450_450_140cd750bba9870f18aada2478b24840a/0ecddd497219ad90b24528a52aee5e9e.webp', 80, 1),
+(26, 'Logitech Webcam C930e {Full HD 1080p/30fps, автофокус, zoom 4x, угол обзора 90°, стереомикрофон, защитная шторка, кабель 1.83м}', '', 'https://comp-city.com/upload/resize_cache/webp/upload/iblock/b97/s531nwwfrt1tvewrdpo30677j4hlvliq.webp', 95, 1),
+(27, 'Веб-камера с матрицей 2 МП, разрешение видео 1920х1080, USB 2.0, встроенный микрофон с шумоподавлением, автофокус, крепление на мониторе, длина кабеля 1,8 м, цвет чёрный', '', 'https://comp-city.com/upload/resize_cache/webp/iblock/080/450_450_140cd750bba9870f18aada2478b24840a/080057ae0c4d5f5971d1526f607e02e6.webp', 40, 1),
+(28, 'Газонокосилка аккумуляторная [512201435] { 40В, акб 2,5Ач, ширина кошения 37см, травосборник 40 л }', '', 'https://comp-city.com/upload/resize_cache/webp/iblock/55d/o8uwdtisuh9afrarz431xeuuzqrrjagb.webp', 5, 2);
 
 -- --------------------------------------------------------
 
@@ -140,13 +161,13 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`, `cat-i
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `father` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Дамп данных таблицы `users`
@@ -182,7 +203,7 @@ ALTER TABLE `incoming-parcels`
 -- Индексы таблицы `outcome-parcels-goods`
 --
 ALTER TABLE `outcome-parcels-goods`
-  ADD PRIMARY KEY (`id-outcome`,`id-product`),
+  ADD PRIMARY KEY (`id-outcome`,`id-product`,`quantity`),
   ADD KEY `id-product` (`id-product`);
 
 --
@@ -212,31 +233,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `incoming-parcels`
 --
 ALTER TABLE `incoming-parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `outcoming-parcels`
 --
 ALTER TABLE `outcoming-parcels`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

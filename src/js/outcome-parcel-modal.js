@@ -123,7 +123,6 @@ function formHandler(event)
 
     if(submitable)
     {
-        console.log('Отправили!')
         form.submit();
     }
 }

@@ -36,6 +36,8 @@
 
     <link rel="stylesheet" href="/dist/css/income-parcel.css">
 
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
 <!--    <script defer src="/dist/js/open-newParcel-modal.min.js"></script>-->
 
     <script src="/src/js/open-newParcel-modal.js" defer></script>

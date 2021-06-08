@@ -18,7 +18,7 @@ require $_SERVER['DOCUMENT_ROOT'].'/src/php/connection.php';
 
 // делаем красивую дату для MySQL
 $date = new DateTime('NOW');
-$date = $date->format('Y-m-d H:m:s');
+$date = $date->format('Y-m-d H:i:s');
 
 // вставляем в главную таблицу отгрузок
 Database::insert(
