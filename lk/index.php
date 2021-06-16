@@ -39,36 +39,34 @@
                 <span><?=$user['surname'].' '.$user['name'].' ' .$user['father']?></span>
             </h2>
 
-            <form action="" class="personal-info">
+            <form action="/src/php/updateUser.php" method="POST" class="personal-info">
 
                 <div class="personal-info__field-wrapper">
-                    <label class="personal-info__field-name">Имя</label>
-
-                    <input type="text" name="user-name" value="<?=$userInfo[0]['name']?>">
+                    <label class="personal-info__field-name" for="user-name">Имя</label>
+                    <input type="text" name="user-name" id="user-name" value="<?=$userInfo[0]['name']?>">
                 </div>
 
                 <div class="personal-info__field-wrapper">
-                    <label class="personal-info__field-name">Фамилия</label>
-
-                    <input type="text" name="user-surname" value="<?=$userInfo[0]['surname']?>">
+                    <label class="personal-info__field-name" for="user-surname">Фамилия</label>
+                    <input type="text" id="user-surname" name="user-surname" value="<?=$userInfo[0]['surname']?>">
                 </div>
 
                 <div class="personal-info__field-wrapper">
-                    <label class="personal-info__field-name">Отчество</label>
+                    <label class="personal-info__field-name" for="user-father">Отчество</label>
 
-                    <input type="text" name="user-father" value="<?=$userInfo[0]['father']?>">
+                    <input type="text" name="user-father" id="user-father" value="<?=$userInfo[0]['father']?>">
                 </div>
 
                 <div class="personal-info__field-wrapper">
-                    <label class="personal-info__field-name">Логин</label>
+                    <label class="personal-info__field-name" for="user-login">Логин</label>
 
-                    <input type="text" name="user-login" value="<?=$userInfo[0]['login']?>">
+                    <input type="text" name="user-login" id="user-login" value="<?=$userInfo[0]['login']?>">
                 </div>
 
                 <div class="personal-info__field-wrapper">
-                    <label class="personal-info__field-name">Пароль</label>
+                    <label class="personal-info__field-name" for="user-pass">Пароль</label>
 
-                    <input type="password" name="user-password" value="">
+                    <input type="password" name="user-password" id="user-pass">
                 </div>
 
                 <input type="submit" value="Применить изменения">

@@ -27,18 +27,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7d53e55-2aa5-4c64-8168-de360d782446" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/php/createCategory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/php/updateUser.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scss/admin-form.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/outcome-parsel.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/outcome-parsel.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/income-parcel/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/income-parcel/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/outcome-parcels/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/outcome-parcels/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/allGoods-filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/allGoods-filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/deleteProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/deleteProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/open-newParcel-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/open-newParcel-modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/outcome-parcel-modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/outcome-parcel-modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/php/newOutcomeParcel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/newOutcomeParcel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/income-parcel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/income-parcel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/outcome-parsel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/outcome-parsel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lk/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/lk/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prepros.config" beforeDir="false" afterPath="$PROJECT_DIR$/prepros.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/php/auth-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/php/auth-handler.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -71,6 +68,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -91,7 +89,9 @@
       <workItem from="1622635092841" duration="11351000" />
       <workItem from="1622799123647" duration="8225000" />
       <workItem from="1622911628522" duration="139000" />
-      <workItem from="1623189673303" duration="3532000" />
+      <workItem from="1623189673303" duration="3932000" />
+      <workItem from="1623227250342" duration="12000" />
+      <workItem from="1623824931974" duration="2171000" />
     </task>
     <servers />
   </component>
@@ -121,5 +121,15 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="794" y="439" key="NewPhpFileDialog" timestamp="1623826191728">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="439" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1623826191728" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1623826266405">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1623826266405" />
   </component>
 </project>

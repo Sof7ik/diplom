@@ -6,7 +6,7 @@ $login = $_POST['login'];
 $pass = $_POST['password'];
 
 $user = Database::select('users',
-    'id, password, name, surname, father',
+    'id, password, name, surname, father, role',
     '`login` = :login',
     [[':login', $login]]);
 
@@ -15,7 +15,15 @@ if (!empty($user[0]))
     if (password_verify($pass, $user[0]['password']))
     {
         setcookie('user', serialize($user[0]), time()+84600, '/');
-        header('Location: /start');
+
+        if($user[0]['role'] == 1)
+        {
+            header('Location: /admin');
+        }
+        else
+        {
+            header('Location: /start');
+        }
     }
     else
     {
