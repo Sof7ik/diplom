@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 09 2021 г., 02:15
--- Версия сервера: 8.0.19
--- Версия PHP: 7.4.5
+-- Время создания: Июн 18 2021 г., 11:16
+-- Версия сервера: 10.3.22-MariaDB
+-- Версия PHP: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `categories`
@@ -49,10 +49,10 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `income-parcels-goods` (
-  `id-income` int NOT NULL,
-  `id-product` int NOT NULL,
-  `product-quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id-income` int(11) NOT NULL,
+  `id-product` int(11) NOT NULL,
+  `product-quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `income-parcels-goods`
@@ -71,9 +71,9 @@ INSERT INTO `income-parcels-goods` (`id-income`, `id-product`, `product-quantity
 --
 
 CREATE TABLE `incoming-parcels` (
-  `id` int NOT NULL,
-  `date` datetime DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(11) NOT NULL,
+  `date` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `incoming-parcels`
@@ -96,10 +96,10 @@ INSERT INTO `incoming-parcels` (`id`, `date`) VALUES
 --
 
 CREATE TABLE `outcome-parcels-goods` (
-  `id-outcome` int NOT NULL,
-  `id-product` int NOT NULL,
-  `quantity` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id-outcome` int(11) NOT NULL,
+  `id-product` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `outcome-parcels-goods`
@@ -118,9 +118,9 @@ INSERT INTO `outcome-parcels-goods` (`id-outcome`, `id-product`, `quantity`) VAL
 --
 
 CREATE TABLE `outcoming-parcels` (
-  `id` int NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `outcoming-parcels`
@@ -136,13 +136,13 @@ INSERT INTO `outcoming-parcels` (`id`, `date`) VALUES
 --
 
 CREATE TABLE `products` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `quantity` int NOT NULL,
-  `cat-id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `quantity` int(11) NOT NULL,
+  `cat-id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `products`
@@ -161,20 +161,22 @@ INSERT INTO `products` (`id`, `name`, `description`, `image`, `quantity`, `cat-i
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `surname` varchar(255) NOT NULL,
   `father` varchar(255) NOT NULL,
   `login` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `password` varchar(255) NOT NULL,
+  `role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `surname`, `father`, `login`, `password`) VALUES
-(1, 'Тестовый', 'Первый', 'Пользователь', 'user', '$2y$10$otNCfTvkIdT7Eb2G.jAKOOffpS5tvknT3BD9zbGHxnwxfiGOhvAl6');
+INSERT INTO `users` (`id`, `name`, `surname`, `father`, `login`, `password`, `role`) VALUES
+(1, 'Тестовый', 'Первый', 'Пользователь', 'user', '$2y$10$otNCfTvkIdT7Eb2G.jAKOOffpS5tvknT3BD9zbGHxnwxfiGOhvAl6', 0),
+(3, 'Админ', 'Админ', 'Админ', 'admin', '$2y$10$WDxZelA3fJbeTOmfENT4eurPGvd2adlfjsXNxaPvwd2MJFwLX0Y2i', 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -233,31 +235,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `incoming-parcels`
 --
 ALTER TABLE `incoming-parcels`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT для таблицы `outcoming-parcels`
 --
 ALTER TABLE `outcoming-parcels`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
